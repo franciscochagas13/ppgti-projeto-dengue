@@ -1,0 +1,9 @@
+<div
+ *ngIf="isDisplayMap"
+ style="height: 300px;" 
+ leaflet
+  [leafletOptions]="options" 
+  [leafletLayers]="layers"
+  (leafletMapReady)="onMapReady($event)">
+
+</div>
