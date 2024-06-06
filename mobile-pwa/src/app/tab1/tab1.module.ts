@@ -7,7 +7,9 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { MapaParaibaComponentModule } from '../mapa-paraiba/mapa-paraiba.module';
+
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { DengueCardsComponent } from '../dengue-cards/dengue-cards.component.spec';
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     FormsModule,
     ExploreContainerComponentModule,
     MapaParaibaComponentModule,
+    DengueCardsComponent,
     LeafletModule,
     Tab1PageRoutingModule
   ],

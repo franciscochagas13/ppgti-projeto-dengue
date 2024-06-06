@@ -1,0 +1,36 @@
+.card-container {
+    display: flex;
+    justify-content: center; /* Centraliza o card horizontalmente */
+    padding: 20px;
+  
+    @media (max-width: 600px) {
+      flex-direction: column; /* Muda para uma coluna em telas menores */
+      align-items: center; /* Centraliza os cards verticalmente */
+    }
+  }
+    
+    .card {
+      width: 400px; /* Largura do card */
+      text-align: left;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+      background-color: #fff; /* Cor de fundo do card */
+      color: black; /* Cor do texto */
+      @media (max-width: 600px) {
+          width: 80%; /* Largura de 80% em telas menores */
+          margin-bottom: 20px; /* Adiciona espaço entre os cards */
+        }
+    }
+    
+    
+    .data-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .data-item {
+      margin-bottom: 10px;
+    }
+    
+    
