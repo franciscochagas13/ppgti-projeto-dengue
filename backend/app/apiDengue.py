@@ -24,12 +24,15 @@ def fetch_and_store_data(ew_start, ew_end, ey_start, ey_end):
         # Verificar se a resposta é uma lista
         if isinstance(data_list, list):
             for data in data_list:
+                start_date = timestamp_to_date(data.get("data_iniSE", ""))
+                end_date = timestamp_to_date(data.get("data_iniSE", "") + 7 * 24 * 60 * 60 * 1000)
+
                 # Organizar os dados conforme o formato desejado
                 organized_data = {
                     "geocode": geocode,
                     "name_city": city_name,
-                    "start_data": timestamp_to_date(data.get("data_iniSE", "")),
-                    "end_data": timestamp_to_date(data.get("data_iniSE", "") + 7 * 24 * 60 * 60 * 1000),
+                    "start_data": start_date,
+                    "end_data": end_date,
                     "casos": data.get("casos", ""),
                     "tempmin": data.get("tempmin", ""),
                     "tempmed": data.get("tempmed", ""),
@@ -39,8 +42,19 @@ def fetch_and_store_data(ew_start, ew_end, ey_start, ey_end):
                     "umidmax": data.get("umidmax", "")
                 }
 
-                # Armazenar no MongoDB
-                db.dengue_data.insert_one(organized_data)
+                # Critério de busca para verificação de existência
+                search_criteria = {
+                    "geocode": geocode,
+                    "start_date": start_date,
+                    "end_date": end_date
+                }
+
+                # Atualizar ou inserir documento
+                db.dengue_data.update_one(
+                    search_criteria,
+                    {"$set": organized_data},
+                    upsert=True
+                )
         else:
             print(f"Unexpected JSON format for geocode {geocode}: {data_list}")
             
