@@ -28,6 +28,8 @@
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
+    "@types/chart.js": "^2.9.41",
+    "chart.js": "^4.4.3",
     "ionicons": "^7.0.0",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",

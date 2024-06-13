@@ -7,7 +7,9 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { MapaParaibaComponentModule } from '../mapa-paraiba/mapa-paraiba.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { TotalCasosModule } from '../total-casos/total-casos.module'; // Importe o módulo TotalCasosModule
+import { TotalCasosModule } from '../total-casos/total-casos.module';
+import { GraficoLinhaTemporalModule } from '../grafico-linha-temporal/grafico-linha-temporal.module';
+
 
 @NgModule({
   imports: [
@@ -18,9 +20,13 @@ import { TotalCasosModule } from '../total-casos/total-casos.module'; // Importe
     MapaParaibaComponentModule,
     LeafletModule,
     Tab1PageRoutingModule,
-    TotalCasosModule // Importe aqui se estiver usando diretamente
+    TotalCasosModule,
+    GraficoLinhaTemporalModule,
+
   ],
   declarations: [Tab1Page],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Adicione o CUSTOM_ELEMENTS_SCHEMA se necessário
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab1PageModule {}
+
+

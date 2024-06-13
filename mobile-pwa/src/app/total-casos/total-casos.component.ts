@@ -8,33 +8,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TotalCasosComponent implements OnInit {
   nome: string = 'Paraíba'; // Nome padrão, pode ser substituído pelo nome do estado desejado
-  casos: number;
+  total_cases: number;
   loading: boolean = true;
   error: string;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.fetchCasos();
+    this.fetchTotalCases();
   }
 
-  fetchCasos() {
+  fetchTotalCases() {
     // URL do seu backend que retorna o total de casos
     const baseUrl = 'http://localhost:5000/api/total-cases'; 
     const start_date = '2024-01-01'; // Data de início desejada
-    const end_date = '2024-06-01';   // Data de término desejada
+    const end_date = '2024-12-31';   // Data de término desejada
 
     // Monta a URL com os parâmetros de data
     const url = `${baseUrl}?start_date=${start_date}&end_date=${end_date}`;
 
     this.http.get<any>(url).subscribe(
       response => {
-        this.casos = response.casos;
+        this.total_cases = response.total_cases;
         this.loading = false;
       },
       error => {
-        console.error('Erro ao buscar total de casos:', error);
-        this.error = 'Erro ao buscar total de casos. Por favor, tente novamente mais tarde.';
+        console.error('22545:', error);
+        this.error = '22545';
         this.loading = false;
       }
     );

@@ -7,8 +7,9 @@ import { TotalCasosComponent } from './total-casos.component';
   declarations: [TotalCasosComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  exports: [TotalCasosComponent] // Exporta o componente se necessário
+  exports: [TotalCasosComponent]
 })
 export class TotalCasosModule { }
+
